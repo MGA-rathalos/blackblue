@@ -3,13 +3,21 @@
     padding: 0;
     outline: 0;
     border: 0;
-    font-family: 13px 'EB Garamond', serif;
-    
+    font-family: 13px Arial,'EB Garamond', serif;
+    box-sizing: border-box;  
 } 
 html{
     background-color: aliceblue;
     scroll-behavior: smooth;
+    font-size: 62.5%;
 }  
+body{
+    font-size: 1.6rem;
+    line-height: 2;
+}
+img{
+    max-width: 100%;
+}
 
 h1{
     text-align: left;
@@ -17,17 +25,18 @@ h1{
     height: fit-content;
     width: fit-content;
     color:   #213e61;
+    font-size: 4rem;
 }
 
 .barra{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     box-sizing: content-box;
 	
-	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
-	left: 0; /* Posicionamos la cabecera al lado izquierdo */
-	top: 0; /* Posicionamos la cabecera pegada arriba */
-	position: fixed !important /* Hacemos que la cabecera tenga una posición fija */
+	width: 100%;
+	left: 0; 
+	top: 0; 
+	position: fixed !important 
 }
 
 #logo{
@@ -41,7 +50,7 @@ h1{
 
 } 
 .arrow{
-    color: goldenrod;
+    color: #213e61;
     text-align: center;
     padding-top: 85vh;  
 }
@@ -49,6 +58,7 @@ h1{
 header{  
     background: url('imagenes/10.jpeg') no-repeat center;
     background-size: cover;
+    align-content: center;
     height: 100vh;
     width: 100vw;
 }
@@ -60,17 +70,17 @@ header{
     display: inline-flex;
     justify-content: space-evenly;
     height: 100%;
-    width: 100%;
+    width: 90vw;
     flex-direction: row;
     align-items: center;
     align-content: center;
+    margin: 1rem;
 }
 .formu-item{
     width: 40%;
 }
 iframe{
     border-radius: 2rem;
-    border:2px solid goldenrod;
     margin-bottom: 5rem;
 }
 /* Formulario */
@@ -127,7 +137,22 @@ textarea{
     font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
+/* MEDIA TABLET */
+@media screen and (max-width: 800px) {
+    .barra{
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        box-sizing: content-box;
+        position: fixed !important
+    }
+    #logo{
+        width: 15rem;
+        height: 10rem; 
+        margin-right: 8rem;   
+    } 
+
     nav{
         margin: 3rem;
     }
@@ -140,7 +165,7 @@ textarea{
     } 
     li{
         margin: 0.5rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
     } 
     
     
@@ -152,17 +177,53 @@ textarea{
         margin: 1rem;
         padding: 10%;
         text-align: center;
-        width: 6rem;
+        width: 10rem;
         height: fit-content ;
         box-shadow: 3px 3px 1px #0a6691;
         border-radius: 0.5rem;
         font-family: 'Montserrat', sans-serif;
     } 
+    .grid-container{
+        display: grid;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .grid-item{
+        display: grid;
+        border-radius: 0.5rem;
+        margin: 0.5rem;
+        justify-items: center;
+        justify-content: center;
+        width: 100vw;
+        gap: 2rem;
+    }
+    .grid-container2{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        width: 100%;
+        justify-content: center;
+        gap: 25rem;
+    }
+    .grid-item2{
+        display: flex;
+        border-radius: 0.5rem;
+        margin: 2.5rem;
+        width: 80%;
+        height: 53vh;
+        gap: 1rem;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;   
+    }
     
     
 }
-
-@media screen and (min-width: 768px) {
+/* MEDIA LAPTOP */
+@media screen and (min-width: 800px) and (max-width: 1050px){
     nav{
         margin: 3rem;
     }
@@ -175,7 +236,7 @@ textarea{
     } 
     li{
         margin: 0.5rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
     } 
     
     
@@ -187,20 +248,62 @@ textarea{
         margin: 1rem;
         padding: 10%;
         text-align: center;
-        width: 6rem;
+        width: 10rem;
         height: fit-content ;
         box-shadow: 3px 3px 1px #0a6691;
         border-radius: 0.5rem;
         font-family: 'Montserrat', sans-serif;
         
     } 
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin: 2rem;
+    }
+    
+    .grid-item{
+        display: grid;
+        border-radius: 0.5rem;
+        margin: 0.5rem;
+    }
+    .grid-container2{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .grid-item2{
+        display: grid;
+        border-radius: 0.5rem;
+        margin: 2.5rem;
+        width: 95%;
+        height: 60vh;
+        justify-items: center;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;   
+    }
+    header{
+        width: 110%;
+    }
+    article>div>img{
+        width: 85%;
+        height: 85%;
+        border-radius: 2rem;
+        border:2px solid #213e61; 
+    }
     
     
     
 } 
 
-
-@media screen and (min-width:1024px){
+/* MEDIA DESK */
+@media screen and (min-width:1050px){
     
     nav{
         margin: 3rem;
@@ -216,7 +319,7 @@ textarea{
     } 
     li{
         margin: 0.5rem;
-        font-size: 1rem; 
+        font-size: 1.2rem; 
         width: fit-content;   
     } 
     li>a{
@@ -228,25 +331,14 @@ textarea{
         margin: 1rem;
         padding: 10%;
         text-align: center;
-        width: 6rem;
-        height: fit-content ;
-        
+        width: 10rem;
+        height: fit-content;
+        text-size-adjust: 3.2rem;
         border-radius: 0.5rem;
         font-family: 'Montserrat', sans-serif;
     } 
 
-     /* a:hover{
-        color: #4C9CFC;
-        background-color: #7D41D9;
-         padding: 15%; 
-        margin: 2rem;
-
-        transition-property: all;
-        transition-duration: 0.5s;
-        transition-timing-function: ease;
-
-    }  */
-    /* ANIMACION */
+ /* ANIMACION */
     a:hover {
         display: inline-block;
         padding: 15%;
@@ -257,66 +349,70 @@ textarea{
         animation-duration: 2s;    
     }
       
+      
+    .grid-container2{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        width: 100vw;
+        gap: 0.5rem;
+        height: 90vh;
+        justify-content: center;
+        justify-items: center;
+
+    }
+    .grid-item2{
+        display: inline-flex;
+        border-radius: 0.5rem;
+        margin: 0.5rem;
+        width: 80vw;
+        height: 20vh;
+        align-items: center;  
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin: 2rem;
+    }
+    
+    .grid-item{
+        display: grid;
+        border-radius: 0.5rem;
+        margin: 0.5rem;
+    }
+    article>div>img{
+        width: 100%;
+        height: 100%;
+        border-radius: 2rem;
+        border:2px solid #213e61; 
+    }
 }
 
 
 
-.grid-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 0.5rem;
-    margin: 2rem;
-}
 
-.grid-item{
-    display: grid;
-    border-radius: 0.5rem;
-    margin: 0.5rem;
-}   
-.grid-container2{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
-    margin: 1rem;
-    height: 90%;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: space-around;
-    justify-items: center;
-}
-.grid-item2{
-    display: inline-flex;
-    border-radius: 0.5rem;
-    margin: 0.5rem;
-    width: 75vw;
-    height: 23vh;
-    align-items: center;
-    align-content: center;   
-}
 article>div>img{
-    width: 100%;
-    height: 100%;
     border-radius: 2rem;
-    border:2px solid goldenrod; 
-}
+    border:2px solid #213e61; 
+} 
 
 h2{
     color: black;
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-top: 10px;
     height: fit-content;
 }
 
 div>div>img{
-    width: 85%;
     height: 85%;
+    width: 85%;
     border-radius: 2rem;
-    border:2px solid goldenrod; 
-} 
+    border:2px solid #213e61; 
+}  
+
 .grid-item:hover {
     transition:all .5s ease-in-out;
     filter: saturate(120%);
@@ -333,15 +429,13 @@ div>div>img{
 #texto2{
     text-align: center;
     padding: 0.5rem;
-    font-size: 25px;
-    font-family: 'EB Garamond', serif !important
+    font-size: 22px;
+    font-family: 'Arial', serif !important
 }
 
 .texto3{
-    text-align: left;
-    font-size: 1.2rem;
-    margin-left: 7rem;
-    width: 30vw;
+    text-align: center;
+    font-size: 1.6rem;
     box-sizing: content-box;
 }
 
@@ -355,6 +449,7 @@ footer{
 }
 p{
     text-align: center;
+    font-size: 2rem;
 }
 footer>p{
     color: black;
